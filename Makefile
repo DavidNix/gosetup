@@ -2,6 +2,8 @@ setup: build-tools
 
 build-tools:
 	@cat tools.go | grep _ | awk '{print $$2}' | xargs -n 1 go install
+	@lefthook install
+	@lefthook add pre-push
 
 # Postgres Database Migrations
 # Change db names here
